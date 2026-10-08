@@ -2,7 +2,7 @@
 
 ## 1. Purpose
 
-This document proposes the initial PostgreSQL schema for the requirements in [PRD.md](PRD.md), using Supabase as the database and authentication provider. It complements [ARCHITECTURE.md](ARCHITECTURE.md). It is a design document only; no migrations or application code are included.
+This document defines the initial PostgreSQL schema for the requirements in [PRD.md](PRD.md), using Supabase as the database and authentication provider. It complements [ARCHITECTURE.md](ARCHITECTURE.md). The first implementation is in [20261004032600_academy_mvp.sql](../supabase/migrations/20261004032600_academy_mvp.sql); setup and bootstrap steps are in [SUPABASE_SETUP.md](SUPABASE_SETUP.md).
 
 ## 2. Design Decisions and Assumptions
 
@@ -326,4 +326,6 @@ Cross-row amount checks need transaction isolation or locking sufficient to prev
 6. **Data policy:** What personal data is necessary, and what retention/deletion rules apply?
 7. **Currency and precision:** Confirm currency, decimal precision, and the academy's time zone.
 
-The proposed schema intentionally keeps the first release small, but the fee-allocation and audit paths are designed to preserve trustworthy financial history. Resolve the open decisions before creating production migrations.
+The initial development migration makes these explicit MVP choices: one attendance session per course/date, one currency configured in `academy_settings`, payments allocated oldest-due-first across a student's open obligations, and overpayments rejected. The current UI displays USD and requires due dates for new obligations. Revisit these choices before production if academy operations differ.
+
+The schema intentionally keeps the first release small, but the fee-allocation and audit paths are designed to preserve trustworthy financial history. Resolve the remaining decisions before production rollout.
