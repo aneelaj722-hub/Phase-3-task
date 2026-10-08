@@ -20,14 +20,14 @@
 - [ ] Add account deactivation and reactivation flow for staff
 - [ ] Test access restrictions for unauthorized users
 
-### Phase 3 - Staff Profiles and Admin Setup
-- [ ] Create admin dashboard shell and navigation
-- [ ] Build staff list view with search and status filters
-- [ ] Implement create and edit staff profile forms
-- [ ] Add basic validation for required staff fields
-- [ ] Add ability to assign roles to staff accounts
-- [ ] Add status management for active and inactive staff
-- [ ] Confirm audit metadata for created/updated records
+### Phase 3 - Staff Profiles and Admin Setup (demo prototype)
+- [x] Create admin dashboard shell and navigation
+- [x] Build staff list view with search and status filters
+- [x] Implement create and edit staff profile forms
+- [x] Add basic validation for required staff fields
+- [x] Add ability to assign roles to staff accounts
+- [x] Add status management for active and inactive staff
+- [x] Confirm audit metadata for created/updated records
 
 ### Phase 4 - Students
 - [ ] Build student listing page with search and filtering
@@ -120,3 +120,5 @@
 ## Notes
 
 This task breakdown is based on the current Academy Management System PRD and architecture proposal. It keeps the scope focused on the MVP while staying aligned with the technology direction: React + Tailwind + Supabase + Vercel.
+
+The frontend now uses Supabase Auth and Supabase tables for academy records. Apply the versioned migration and deploy the trusted staff invitation function by following [SUPABASE_SETUP.md](SUPABASE_SETUP.md) before using the app. Payment reversals remain intentionally blocked until the audited reversal workflow is implemented.
